@@ -1889,77 +1889,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
             }
         };
         sharedMediaLayout.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.MATCH_PARENT));
-        ActionBarMenu menu = actionBar.createMenu();
-
-        if (userId == getUserConfig().clientUserId && !myProfile) {
-            qrItem = menu.addItem(ProfileActivityMenuItem.QR_BUTTON, R.drawable.msg_qr_mini, getResourceProvider());
-            qrItem.setContentDescription(LocaleController.getString(R.string.GetQRCode));
-            updateQrItemVisibility(false);
-            if (ContactsController.getInstance(currentAccount).getPrivacyRules(PRIVACY_RULES_TYPE_ADDED_BY_PHONE) == null) {
-                ContactsController.getInstance(currentAccount).loadPrivacySettings();
-            }
-        }
-        if (imageUpdater != null && !myProfile) {
-            searchItem = menu.addItem(ProfileActivityMenuItem.SEARCH_BUTTON, R.drawable.ic_ab_search).setIsSearchField(true).setActionBarMenuItemSearchListener(new ActionBarMenuItem.ActionBarMenuItemSearchListener() {
-
-                @Override
-                public Animator getCustomToggleTransition() {
-                    searchMode = !searchMode;
-                    if (!searchMode) {
-                        searchItem.clearFocusOnSearchView();
-                    }
-                    if (searchMode) {
-                        searchItem.getSearchField().setText("");
-                    }
-                    return searchExpandTransition(searchMode);
-                }
-
-                @Override
-                public void onTextChanged(EditText editText) {
-                    searchAdapter.search(editText.getText().toString().toLowerCase());
-                }
-            });
-            searchItem.setContentDescription(LocaleController.getString(R.string.SearchInSettings));
-            searchItem.setSearchFieldHint(LocaleController.getString(R.string.SearchInSettings));
-            sharedMediaLayout.getSearchItem().setVisibility(View.GONE);
-            if (sharedMediaLayout.getSearchOptionsItem() != null) {
-                sharedMediaLayout.getSearchOptionsItem().setVisibility(View.GONE);
-            }
-            if (sharedMediaLayout.getSaveItem() != null) {
-                sharedMediaLayout.getSaveItem().setVisibility(View.GONE);
-            }
-            if (expandPhoto) {
-                searchItem.setVisibility(View.GONE);
-            }
-        }
-
-        videoCallItem = menu.addItem(ProfileActivityMenuItem.VIDEO_CALL_ITEM, R.drawable.profile_video);
-        videoCallItem.setContentDescription(LocaleController.getString(R.string.VideoCall));
-        if (chatId != 0) {
-            callItem = menu.addItem(ProfileActivityMenuItem.CALL_ITEM, R.drawable.msg_voicechat2);
-            if (ChatObject.isChannelOrGiga(currentChat)) {
-                callItem.setContentDescription(LocaleController.getString(R.string.VoipChannelVoiceChat));
-            } else {
-                callItem.setContentDescription(LocaleController.getString(R.string.VoipGroupVoiceChat));
-            }
-        } else {
-            callItem = menu.addItem(ProfileActivityMenuItem.CALL_ITEM, R.drawable.ic_call);
-            callItem.setContentDescription(LocaleController.getString(R.string.Call));
-        }
-        if (myProfile) {
-            editItem = menu.addItem(ProfileActivityMenuItem.EDIT_PROFILE, R.drawable.group_edit_profile);
-            editItem.setContentDescription(LocaleController.getString(R.string.Edit));
-        } else {
-            editItem = menu.addItem(ProfileActivityMenuItem.EDIT_CHANNEL, R.drawable.group_edit_profile);
-            editItem.setContentDescription(LocaleController.getString(R.string.Edit));
-        }
-        otherItem = menu.addItem(10, R.drawable.ic_ab_other, resourcesProvider);
-        ttlIconView = new ImageView(context);
-        ttlIconView.setColorFilter(new PorterDuffColorFilter(getThemedColor(Theme.key_actionBarDefaultIcon), PorterDuff.Mode.MULTIPLY));
-        AndroidUtilities.updateViewVisibilityAnimated(ttlIconView, false, 0.8f, false);
-        ttlIconView.setImageResource(R.drawable.msg_mini_autodelete_timer);
-        otherItem.addView(ttlIconView, LayoutHelper.createFrame(12, 12, Gravity.CENTER_VERTICAL | Gravity.LEFT, 8, 2, 0, 0));
-        otherItem.setContentDescription(LocaleController.getString(R.string.AccDescrMoreOptions));
+        createActionBarMenu(context);
 
         int scrollTo;
         int scrollToPosition = 0;
@@ -2985,6 +2915,80 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
         }
 
         return fragmentView;
+    }
+
+    private void createActionBarMenu(Context context) {
+        ActionBarMenu menu = actionBar.createMenu();
+
+        if (userId == getUserConfig().clientUserId && !myProfile) {
+            qrItem = menu.addItem(ProfileActivityMenuItem.QR_BUTTON, R.drawable.msg_qr_mini, getResourceProvider());
+            qrItem.setContentDescription(LocaleController.getString(R.string.GetQRCode));
+            updateQrItemVisibility(false);
+            if (ContactsController.getInstance(currentAccount).getPrivacyRules(PRIVACY_RULES_TYPE_ADDED_BY_PHONE) == null) {
+                ContactsController.getInstance(currentAccount).loadPrivacySettings();
+            }
+        }
+        if (imageUpdater != null && !myProfile) {
+            searchItem = menu.addItem(ProfileActivityMenuItem.SEARCH_BUTTON, R.drawable.ic_ab_search).setIsSearchField(true).setActionBarMenuItemSearchListener(new ActionBarMenuItem.ActionBarMenuItemSearchListener() {
+
+                @Override
+                public Animator getCustomToggleTransition() {
+                    searchMode = !searchMode;
+                    if (!searchMode) {
+                        searchItem.clearFocusOnSearchView();
+                    }
+                    if (searchMode) {
+                        searchItem.getSearchField().setText("");
+                    }
+                    return searchExpandTransition(searchMode);
+                }
+
+                @Override
+                public void onTextChanged(EditText editText) {
+                    searchAdapter.search(editText.getText().toString().toLowerCase());
+                }
+            });
+            searchItem.setContentDescription(LocaleController.getString(R.string.SearchInSettings));
+            searchItem.setSearchFieldHint(LocaleController.getString(R.string.SearchInSettings));
+            sharedMediaLayout.getSearchItem().setVisibility(View.GONE);
+            if (sharedMediaLayout.getSearchOptionsItem() != null) {
+                sharedMediaLayout.getSearchOptionsItem().setVisibility(View.GONE);
+            }
+            if (sharedMediaLayout.getSaveItem() != null) {
+                sharedMediaLayout.getSaveItem().setVisibility(View.GONE);
+            }
+            if (expandPhoto) {
+                searchItem.setVisibility(View.GONE);
+            }
+        }
+
+        videoCallItem = menu.addItem(ProfileActivityMenuItem.VIDEO_CALL_ITEM, R.drawable.profile_video);
+        videoCallItem.setContentDescription(LocaleController.getString(R.string.VideoCall));
+        if (chatId != 0) {
+            callItem = menu.addItem(ProfileActivityMenuItem.CALL_ITEM, R.drawable.msg_voicechat2);
+            if (ChatObject.isChannelOrGiga(currentChat)) {
+                callItem.setContentDescription(LocaleController.getString(R.string.VoipChannelVoiceChat));
+            } else {
+                callItem.setContentDescription(LocaleController.getString(R.string.VoipGroupVoiceChat));
+            }
+        } else {
+            callItem = menu.addItem(ProfileActivityMenuItem.CALL_ITEM, R.drawable.ic_call);
+            callItem.setContentDescription(LocaleController.getString(R.string.Call));
+        }
+        if (myProfile) {
+            editItem = menu.addItem(ProfileActivityMenuItem.EDIT_PROFILE, R.drawable.group_edit_profile);
+            editItem.setContentDescription(LocaleController.getString(R.string.Edit));
+        } else {
+            editItem = menu.addItem(ProfileActivityMenuItem.EDIT_CHANNEL, R.drawable.group_edit_profile);
+            editItem.setContentDescription(LocaleController.getString(R.string.Edit));
+        }
+        otherItem = menu.addItem(10, R.drawable.ic_ab_other, resourcesProvider);
+        ttlIconView = new ImageView(context);
+        ttlIconView.setColorFilter(new PorterDuffColorFilter(getThemedColor(Theme.key_actionBarDefaultIcon), PorterDuff.Mode.MULTIPLY));
+        AndroidUtilities.updateViewVisibilityAnimated(ttlIconView, false, 0.8f, false);
+        ttlIconView.setImageResource(R.drawable.msg_mini_autodelete_timer);
+        otherItem.addView(ttlIconView, LayoutHelper.createFrame(12, 12, Gravity.CENTER_VERTICAL | Gravity.LEFT, 8, 2, 0, 0));
+        otherItem.setContentDescription(LocaleController.getString(R.string.AccDescrMoreOptions));
     }
 
     private void updateBottomButtonY() {
