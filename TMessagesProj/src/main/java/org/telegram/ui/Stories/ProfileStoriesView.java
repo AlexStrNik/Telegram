@@ -47,7 +47,7 @@ import org.telegram.ui.Components.AnimatedFloat;
 import org.telegram.ui.Components.AnimatedTextView;
 import org.telegram.ui.Components.CubicBezierInterpolator;
 import org.telegram.ui.Components.RadialProgress;
-import org.telegram.ui.Profile.ProfileActivity;
+import org.telegram.ui.Profile.ProfileActivityAvatarImageView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -66,7 +66,7 @@ public class ProfileStoriesView extends View implements NotificationCenter.Notif
     private final long dialogId;
     private final boolean isTopic;
     private final View avatarContainer;
-    private final ProfileActivity.AvatarImageView avatarImage;
+    private final ProfileActivityAvatarImageView avatarImage;
 
     private final AnimatedTextView.AnimatedTextDrawable titleDrawable = new AnimatedTextView.AnimatedTextDrawable(false, true, true);
 
@@ -141,7 +141,7 @@ public class ProfileStoriesView extends View implements NotificationCenter.Notif
 
     StoriesController storiesController;
 
-    public ProfileStoriesView(Context context, int currentAccount, long dialogId, boolean isTopic, @NonNull View avatarContainer, ProfileActivity.AvatarImageView avatarImage, Theme.ResourcesProvider resourcesProvider) {
+    public ProfileStoriesView(Context context, int currentAccount, long dialogId, boolean isTopic, @NonNull View avatarContainer, ProfileActivityAvatarImageView avatarImage, Theme.ResourcesProvider resourcesProvider) {
         super(context);
 
         this.currentAccount = currentAccount;

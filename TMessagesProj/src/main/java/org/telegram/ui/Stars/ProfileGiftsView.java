@@ -29,7 +29,7 @@ import org.telegram.ui.Components.AnimatedEmojiDrawable;
 import org.telegram.ui.Components.AnimatedFloat;
 import org.telegram.ui.Components.ButtonBounce;
 import org.telegram.ui.Components.CubicBezierInterpolator;
-import org.telegram.ui.Profile.ProfileActivity;
+import org.telegram.ui.Profile.ProfileActivityAvatarImageView;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -39,10 +39,10 @@ public class ProfileGiftsView extends View implements NotificationCenter.Notific
     private final int currentAccount;
     private final long dialogId;
     private final View avatarContainer;
-    private final ProfileActivity.AvatarImageView avatarImage;
+    private final ProfileActivityAvatarImageView avatarImage;
     private final Theme.ResourcesProvider resourcesProvider;
 
-    public ProfileGiftsView(Context context, int currentAccount, long dialogId, @NonNull View avatarContainer, ProfileActivity.AvatarImageView avatarImage, Theme.ResourcesProvider resourcesProvider) {
+    public ProfileGiftsView(Context context, int currentAccount, long dialogId, @NonNull View avatarContainer, ProfileActivityAvatarImageView avatarImage, Theme.ResourcesProvider resourcesProvider) {
         super(context);
 
         this.currentAccount = currentAccount;
