@@ -23,7 +23,7 @@ import org.telegram.ui.ActionBar.ActionBarMenuSubItem;
 import org.telegram.ui.ActionBar.ActionBarPopupWindow;
 import org.telegram.ui.ActionBar.BaseFragment;
 import org.telegram.ui.ActionBar.Theme;
-import org.telegram.ui.ProfileNotificationsActivity;
+import org.telegram.ui.Profile.ProfileNotificationsActivity;
 
 import java.util.HashSet;
 

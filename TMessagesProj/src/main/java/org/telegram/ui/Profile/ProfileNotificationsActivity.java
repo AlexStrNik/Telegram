@@ -6,7 +6,7 @@
  * Copyright Nikolai Kudashov, 2013-2018.
  */
 
-package org.telegram.ui;
+package org.telegram.ui.Profile;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -66,6 +66,8 @@ import org.telegram.ui.Components.ChatAvatarContainer;
 import org.telegram.ui.Components.Forum.ForumUtilities;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.RecyclerListView;
+import org.telegram.ui.NotificationsSettingsActivity;
+import org.telegram.ui.NotificationsSoundActivity;
 
 import java.util.ArrayList;
 

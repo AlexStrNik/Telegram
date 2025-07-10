@@ -28,6 +28,7 @@ import org.telegram.ui.Cells.TextCell;
 import org.telegram.ui.Cells.TopicExceptionCell;
 import org.telegram.ui.Components.ListView.AdapterWithDiffUtils;
 import org.telegram.ui.Components.RecyclerListView;
+import org.telegram.ui.Profile.ProfileNotificationsActivity;
 
 import java.util.ArrayList;
 import java.util.HashSet;

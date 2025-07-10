@@ -94,6 +94,7 @@ import org.telegram.ui.Components.ItemOptions;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.ListView.AdapterWithDiffUtils;
 import org.telegram.ui.Components.RecyclerListView;
+import org.telegram.ui.Profile.ProfileNotificationsActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;

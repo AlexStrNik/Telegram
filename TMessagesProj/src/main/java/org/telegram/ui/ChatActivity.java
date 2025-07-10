@@ -255,6 +255,9 @@ import org.telegram.ui.Components.voip.CellFlickerDrawable;
 import org.telegram.ui.Components.voip.VoIPHelper;
 import org.telegram.ui.Delegates.ChatActivityMemberRequestsDelegate;
 import org.telegram.ui.Gifts.GiftSheet;
+import org.telegram.ui.Profile.ProfileActivity;
+import org.telegram.ui.Profile.ProfileBirthdayEffect;
+import org.telegram.ui.Profile.ProfileNotificationsActivity;
 import org.telegram.ui.Stars.StarReactionsOverlay;
 import org.telegram.ui.Stars.StarsController;
 import org.telegram.ui.Stars.StarsIntroActivity;
@@ -335,7 +338,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
     private FrameLayout progressView;
     private View progressView2;
     private FrameLayout bottomOverlay;
-    protected ChatActivityEnterView chatActivityEnterView;
+    public ChatActivityEnterView chatActivityEnterView;
     private ChatActivityEnterTopView chatActivityEnterTopView;
     private int chatActivityEnterViewAnimateFromTop;
     private boolean chatActivityEnterViewAnimateBeforeSending;
