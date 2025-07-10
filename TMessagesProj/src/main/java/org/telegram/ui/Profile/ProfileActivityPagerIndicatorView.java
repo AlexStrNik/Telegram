@@ -159,11 +159,11 @@ class ProfileActivityPagerIndicatorView extends View {
         if (profileActivity.isPulledDown) {
             int position = profileActivity.avatarsViewPager.getRealPosition();
             if (position == 0) {
-                profileActivity.otherItem.hideSubItem(ProfileActivity.set_as_main);
-                profileActivity.otherItem.showSubItem(ProfileActivity.add_photo);
+                profileActivity.otherItem.hideSubItem(ProfileActivityMenuItem.SET_AS_MAIN);
+                profileActivity.otherItem.showSubItem(ProfileActivityMenuItem.ADD_PHOTO);
             } else {
-                profileActivity.otherItem.showSubItem(ProfileActivity.set_as_main);
-                profileActivity.otherItem.hideSubItem(ProfileActivity.add_photo);
+                profileActivity.otherItem.showSubItem(ProfileActivityMenuItem.SET_AS_MAIN);
+                profileActivity.otherItem.hideSubItem(ProfileActivityMenuItem.ADD_PHOTO);
             }
         }
     }
