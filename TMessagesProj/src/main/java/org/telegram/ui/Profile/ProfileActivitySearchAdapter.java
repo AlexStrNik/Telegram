@@ -133,7 +133,7 @@ class ProfileActivitySearchAdapter extends RecyclerListView.SelectionAdapter {
         }
     }
 
-    SearchResult[] searchArray = onCreateSearchArray();
+    SearchResult[] searchArray;
     ArrayList<MessagesController.FaqSearchResult> faqSearchArray = new ArrayList<>();
 
     private Context mContext;
@@ -150,6 +150,8 @@ class ProfileActivitySearchAdapter extends RecyclerListView.SelectionAdapter {
     public ProfileActivitySearchAdapter(ProfileActivity profileActivity, Context context) {
         this.profileActivity = profileActivity;
         mContext = context;
+
+        searchArray = onCreateSearchArray();
 
         updateSearchArray();
     }
