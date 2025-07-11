@@ -144,8 +144,8 @@ class ProfileActivityTopView extends FrameLayout {
 
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
-        final int height = ActionBar.getCurrentActionBarHeight() + (profileActivity.getActionBar().getOccupyStatusBar() ? AndroidUtilities.statusBarHeight : 0);
-        final float v = profileActivity.extraHeight + height + profileActivity.searchTransitionOffset;
+        // final int height = ActionBar.getCurrentActionBarHeight() + (profileActivity.getActionBar().getOccupyStatusBar() ? AndroidUtilities.statusBarHeight : 0);
+        final float v = getMeasuredHeight(); // profileActivity.extraHeight + height + profileActivity.searchTransitionOffset;
 
         int y1 = (int) (v * (1.0f - profileActivity.mediaHeaderAnimationProgress));
 
